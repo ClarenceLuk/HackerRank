@@ -1,0 +1,27 @@
+#This program will find the average score of the user.
+
+if __name__ == '__main__':
+    n = int(input()) #takes the input of the number of users
+    student_marks = {} #creates a dictionary of the different students
+    for _ in range(n): #this will loop the number of users
+        name, *line = input().split() #this one takes the first name and put it into name, then takes the rest of the line and split it into a list and store it into lines
+        scores = list(map(float, line)) #the list is then converted into an array and stored into scores
+        student_marks[name] = scores #using the name of the user it will create a dictionary with the name of the user and it will store the array into the name of the user
+    query_name = input() #now outside the loop the query_name will take the user name searched
+    total = 0 #this initialized the total variable to be outside of the for loop so the loop wont get scoped out by the function
+    for i in range(len(student_marks[query_name])): #this will take the length of the array by the student name and add all their scores together
+        total += student_marks[query_name][i] #adds their score to the variable outside of the scope of the loop
+    average = total/(len(student_marks[query_name])) #now I can take the average of the scores and save them
+    print('%.2f' % average) #this will format the average so it will always have 2 decimal places
+    #one thing I learned is that doule quotes "" and single queotes '' makes a difference
+    #the system can reduce the number of zeroes when I use a double quote, but when I use a single quote the system does not reduce the number of decimal places
+    #I wonder if this is uniq to hackerRank
+    #more investigation will be needed
+    
+#this is a sample input
+#input
+#3
+#Krishna 67 68 69
+#Arjun 70 98 63
+#Malika 52 56 60
+#Malika
