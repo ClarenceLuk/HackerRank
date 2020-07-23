@@ -1,0 +1,21 @@
+#solutions to https://www.hackerrank.com/challenges/python-lists/problem
+N = int(input())
+x = []
+for i in range(N):
+	a = input()
+	b = a.split()
+	#print(b[0], b[1], b[2])
+	if b[0] == "insert":
+		x.insert(int(b[1]), int(b[2]))
+	elif b[0] == "remove":
+		x.remove(int(b[1]))
+	elif b[0] == "append":
+		x.appendint((b[1]))
+	elif b[0] == "sort":
+		x.sort()
+	elif b[0] == "pop":
+		x.pop()
+	elif b[0] == "reverse":
+		x.reverse()
+	elif b[0] == "print":
+		print(x)
