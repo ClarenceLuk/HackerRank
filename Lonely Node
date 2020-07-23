@@ -1,0 +1,30 @@
+#solutions to finding lonely nodes in a recursive tree. A lonely node is a node with no sibling node(s). This prints out all the lonely nodes.
+class Node:
+    def __init__(self,key):
+        self.left = None
+        self.right = None
+        self.val = key
+
+def printInorder(root):
+	if root:
+		printInorder(root.left)
+		lonlyNode(root)
+		printInorder(root.right)
+
+def lonlyNode(root):
+	if root:
+		if root.left is None and root.right is not None:
+			print(root.right.val)
+		elif root.right is None and root.left is not None:
+			print(root.left.val)
+
+# Driver code
+root = Node(1)
+root.left      = Node(2)
+root.right     = Node(3)
+root.left.left  = Node(4)
+root.left.right  = Node(5)
+root.right.right = Node(6)
+root.left.left.left = Node(9)
+root.left.left.right = Node(7)
+printInorder(root)
